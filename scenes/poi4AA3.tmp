@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwijdkwj5f00d"]
+
+[ext_resource type="Script" path="res://scenes/points_ui.gd" id="1_stf43"]
+[ext_resource type="FontFile" uid="uid://d1tk7i7etx60h" path="res://fonts/PixelOperator8-Bold.ttf" id="2_ao2xd"]
+[ext_resource type="FontFile" uid="uid://cmvlud24iogo3" path="res://fonts/PixelOperator8.ttf" id="3_evxga"]
+
+[node name="PointsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_stf43")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -159.0
+offset_top = 77.0
+offset_right = 165.0
+offset_bottom = 108.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_evxga")
+theme_override_font_sizes/font_size = 8
+text = "Premi SPAZIO per iniziare"
+horizontal_alignment = 1
+
+[node name="HighScore" type="Label" parent="."]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 14.0
+offset_right = 51.0
+offset_bottom = 37.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("3_evxga")
+theme_override_font_sizes/font_size = 8
+text = "High Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -315.5
+offset_right = 17.5
+offset_bottom = -292.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ao2xd")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

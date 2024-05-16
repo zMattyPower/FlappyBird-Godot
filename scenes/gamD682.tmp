@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cabccjarj6rx4"]
+
+[ext_resource type="PackedScene" uid="uid://cljmk73b6u6wj" path="res://scenes/player.tscn" id="1_0flws"]
+[ext_resource type="Script" path="res://Global.gd" id="1_eq4mm"]
+[ext_resource type="Texture2D" uid="uid://5lq2xocacm8s" path="res://sprites/flappy_bird/background-day.png" id="1_xidrx"]
+[ext_resource type="PackedScene" uid="uid://bpuxo7et7ipx6" path="res://scenes/pipe.tscn" id="2_g66d1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7heoj"]
+size = Vector2(155.5, 20)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_eq4mm")
+
+[node name="Background-day" type="Sprite2D" parent="."]
+position = Vector2(382, 253.75)
+scale = Vector2(1.36806, 1.17676)
+texture = ExtResource("1_xidrx")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_0flws")]
+position = Vector2(384, 288)
+
+[node name="Pipe" parent="." instance=ExtResource("2_g66d1")]
+position = Vector2(541, 317)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(384, 288)
+zoom = Vector2(3, 3)
+process_callback = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(387, 448)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-5, -41)
+shape = SubResource("RectangleShape2D_7heoj")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(390, 206)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-5, -41)
+shape = SubResource("RectangleShape2D_7heoj")

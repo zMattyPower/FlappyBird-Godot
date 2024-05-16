@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://cljmk73b6u6wj"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_5qdwv"]
+[ext_resource type="Texture2D" uid="uid://cawo4myjd2l5e" path="res://sprites/flappy_bird/yellowbird-downflap.png" id="2_4h10q"]
+[ext_resource type="Texture2D" uid="uid://bfo5vgekncjpu" path="res://sprites/flappy_bird/yellowbird-midflap.png" id="3_dfk35"]
+[ext_resource type="Texture2D" uid="uid://dfwadco8fy7q" path="res://sprites/flappy_bird/yellowbird-upflap.png" id="4_a1ykt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8txd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4h10q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dfk35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a1ykt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ivt25"]
+radius = 7.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_5qdwv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 6)
+scale = Vector2(0.705882, 0.625)
+sprite_frames = SubResource("SpriteFrames_u8txd")
+animation = &"idle"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.377843
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_ivt25")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

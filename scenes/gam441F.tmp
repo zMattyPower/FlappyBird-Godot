@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cabccjarj6rx4"]
+
+[ext_resource type="PackedScene" uid="uid://cljmk73b6u6wj" path="res://scenes/player.tscn" id="1_0flws"]
+[ext_resource type="Texture2D" uid="uid://5lq2xocacm8s" path="res://sprites/flappy_bird/background-day.png" id="1_xidrx"]
+[ext_resource type="PackedScene" uid="uid://bpuxo7et7ipx6" path="res://scenes/pipe.tscn" id="2_g66d1"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background-day" type="Sprite2D" parent="."]
+position = Vector2(382, 253.75)
+scale = Vector2(1.36806, 1.17676)
+texture = ExtResource("1_xidrx")
+
+[node name="Player" parent="." instance=ExtResource("1_0flws")]
+position = Vector2(384, 288)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+process_callback = 0
+
+[node name="Pipe" parent="." instance=ExtResource("2_g66d1")]
+position = Vector2(800, 300)

@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://cabccjarj6rx4"]
+
+[ext_resource type="PackedScene" uid="uid://cljmk73b6u6wj" path="res://scenes/player.tscn" id="1_0flws"]
+[ext_resource type="Script" path="res://scripts/Global.gd" id="1_eq4mm"]
+[ext_resource type="Texture2D" uid="uid://5lq2xocacm8s" path="res://sprites/flappy_bird/background-day.png" id="1_xidrx"]
+[ext_resource type="PackedScene" uid="uid://dwijdkwj5f00d" path="res://scenes/points_ui.tscn" id="4_1ha10"]
+[ext_resource type="Texture2D" uid="uid://bnictoh6vm558" path="res://sprites/flappy_bird/base.png" id="5_h2xqe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7heoj"]
+size = Vector2(155.5, 20)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_eq4mm")
+
+[node name="Background-day" type="Sprite2D" parent="."]
+position = Vector2(385, 230)
+scale = Vector2(1.7, 0.961)
+texture = ExtResource("1_xidrx")
+
+[node name="Base2" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(358.16, 395)
+scale = Vector2(0.495432, 0.561264)
+texture = ExtResource("5_h2xqe")
+
+[node name="Base3" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(524, 395)
+scale = Vector2(0.495432, 0.561264)
+texture = ExtResource("5_h2xqe")
+
+[node name="Base5" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(690, 395)
+scale = Vector2(0.495432, 0.561264)
+texture = ExtResource("5_h2xqe")
+
+[node name="Base" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(192.16, 395)
+scale = Vector2(0.495, 0.561)
+texture = ExtResource("5_h2xqe")
+
+[node name="Base4" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(26, 395)
+scale = Vector2(0.495, 0.561)
+texture = ExtResource("5_h2xqe")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_0flws")]
+position = Vector2(384, 288)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(384, 288)
+zoom = Vector2(3, 3)
+process_callback = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(387, 448)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2, -73)
+shape = SubResource("RectangleShape2D_7heoj")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(390, 206)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-5, -41)
+shape = SubResource("RectangleShape2D_7heoj")
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = 5
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Node2D"]
+z_index = 5
+
+[node name="PointsUI" parent="Node2D/CanvasModulate" instance=ExtResource("4_1ha10")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = 386.0
+offset_top = 181.0
+offset_right = 386.0
+offset_bottom = 181.0
+grow_vertical = 1
+size_flags_vertical = 0
